@@ -1,0 +1,53 @@
+//Задание
+
+// Требуется написать программу которая будет решать уравнение ax^2+bx+c==0 при любых a,b,c . Решение уравнение нужно вынести в отдельный метод, который ожидает целочисленные a,b,c на вход и печатает строку. 
+Ожидаемый результат в консоли:
+
+
+//Решение 
+
+//Расчёт дискриминанта
+
+package laba;
+
+import java.util.Scanner; 
+
+public class Laba_1 {
+	public static void main (String [] ards) {
+		
+		Scanner in = new Scanner(System.in);
+		System.out.print("Input a = ");
+		int a = in.nextInt();
+		System.out.print("Input b = ");
+		int b = in.nextInt();
+		System.out.print("Input c = ");
+		int c = in.nextInt();
+		
+		
+		if (a == 0) {
+			if (b == 0) {
+				System.out.println("Неверное введение данных");	
+			} else {
+				int x1 = (-c)/b;
+				System.out.println ("X = "+ x1);
+			}
+			
+		} else {
+			int D = (b^2)- 4*a*c;
+			System.out.println("D = " + D);
+		
+				if (D>0) {
+					int x2 = (-b-D^(1/2))/(2*a);
+					int x3 = (-b+D^(1/2))/(2*a);
+					System.out.println ("X1 = "+ x2 + "; X2 = "+x3);
+				} else if (D<0) {
+					int x4 = (-b)/(2*a);
+					System.out.println ("X = "+ x4); 
+				} else {
+					System.out.println ("Корней нет!");
+					}
+		}
+				
+	}
+
+}
